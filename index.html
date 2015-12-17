@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="dashboard.js"></script>
+	<script type="text/javascript" src="/canvasjs/canvasjs.min.js"></script>
+</head>
+<body>
+	<div id="chartContainer" style="height: 300px; width:100%; background-color:#364156;">
+	</div>
+	<div id="input-div">
+		<p>Device Details:</p>
+		<input id="deviceid" type="text" placeholder="Device ID">
+		<br>
+		<input id="accesstoken" type="text" placeholder="Access Token">
+		<br>
+		<button id="photon">Submit</button>
+	</div>
+	<div id="stats">
+		<h2>Mean Acceleration</h2>
+		<p>Mean X: <span id="meanx">0</span></p>
+		<p>Mean Y: <span id="meany">0</span></p>
+		<p>Mean Z: <span id="meanz">0</span></p>
+	</div>
+</body>
+</html>
