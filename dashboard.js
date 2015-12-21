@@ -40,6 +40,8 @@ function getStream() {
     // Making sure that the chart shifts when values go past
     if (x_accel.length > dataLength) {
       x_accel.shift();
+      y_accel.shift();
+      z_accel.shift();
     }
     // increment the x axis and add values to each total for mean calculation
     ++x_axis;
