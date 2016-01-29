@@ -2,9 +2,24 @@
 var x_accel = [];
 var y_accel = [];
 var z_accel = [];
+
+function fill_empty(accel_arr) {
+  for (var zi = 0; zi < 30; ++zi) {
+    accel_arr.push({
+      x: zi + 1,
+      y: 0
+    });
+  }
+}
+
+fill_empty(x_accel);
+fill_empty(y_accel);
+fill_empty(z_accel);
+
 var chart;
-var x_axis = 0;
+var x_axis = 31;
 var dataLength = 30;
+var total_count = 0;
 var totals = [0, 0, 0];
 
 function getStream() {
@@ -45,14 +60,15 @@ function getStream() {
     }
     // increment the x axis and add values to each total for mean calculation
     ++x_axis;
+    ++total_count;
     totals[0] += parseInt(accel_list[0]);
     totals[1] += parseInt(accel_list[1]);
     totals[2] += parseInt(accel_list[2]);
 
     // Update each mean element with the average
-    xmean.innerHTML = (totals[0] / x_accel.length).toFixed(2);
-    ymean.innerHTML  = (totals[1] / y_accel.length).toFixed(2);
-    zmean.innerHTML  = (totals[2] / z_accel.length).toFixed(2);
+    xmean.innerHTML = (totals[0] / total_count).toFixed(2);
+    ymean.innerHTML  = (totals[1] / total_count).toFixed(2);
+    zmean.innerHTML  = (totals[2] / total_count).toFixed(2);
 
     // Re-render the chart to live-update
     chart.render();
